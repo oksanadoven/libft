@@ -12,13 +12,13 @@
 
 #include "libft.h"
 
-int		ft_iswhitespace(char c)
+static int	ft_iswhitespace(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\n' ||
 			c == '\v' || c == '\f' || c == '\r');
 }
 
-int		ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	int		value;
 	int		sign;
