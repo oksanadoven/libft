@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osolodov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 11:29:02 by osolodov          #+#    #+#             */
-/*   Updated: 2020/03/03 16:23:18 by osolodov         ###   ########.fr       */
+/*   Created: 2020/03/03 13:45:27 by osolodov          #+#    #+#             */
+/*   Updated: 2020/03/03 13:45:58 by osolodov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_atoi(const char *str)
+int		ft_count_words(char const *s, char c)
 {
-	int		value;
-	int		sign;
+	int	count;
+	int	i;
 
-	sign = 1;
-	value = 0;
-	while (ft_iswhitespace(*str))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '+' || *str == '-')
-		str++;
-	while (*str >= '0' && *str <= '9')
+	count = 0;
+	i = 0;
+	while (s[i])
 	{
-		value = value * 10 + (*str - '0');
-		str++;
+		if (i == 0 && s[i] != c)
+			count++;
+		if (i > 0 && s[i] != c && s[i - 1] == c)
+			count++;
+		i++;
 	}
-	return (sign * value);
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: osolodov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 15:08:08 by osolodov          #+#    #+#             */
-/*   Updated: 2020/02/28 10:05:56 by osolodov         ###   ########.fr       */
+/*   Updated: 2020/03/03 12:03:42 by osolodov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	s = (const unsigned char *)src;
 	d = (unsigned char *)dest;
-	if (d > s)
+	if (dest == src)
+		return (dest);
+	else if (d > s)
 	{
 		d += n;
 		s += n;

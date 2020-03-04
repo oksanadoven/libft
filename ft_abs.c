@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osolodov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 11:29:02 by osolodov          #+#    #+#             */
-/*   Updated: 2020/03/03 16:23:18 by osolodov         ###   ########.fr       */
+/*   Created: 2020/03/03 13:42:51 by osolodov          #+#    #+#             */
+/*   Updated: 2020/03/03 13:43:20 by osolodov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_atoi(const char *str)
+int		ft_abs(int n)
 {
-	int		value;
-	int		sign;
-
-	sign = 1;
-	value = 0;
-	while (ft_iswhitespace(*str))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '+' || *str == '-')
-		str++;
-	while (*str >= '0' && *str <= '9')
-	{
-		value = value * 10 + (*str - '0');
-		str++;
-	}
-	return (sign * value);
+	return (n > 0 ? n : -n);
 }

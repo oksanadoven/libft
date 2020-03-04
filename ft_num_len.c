@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_num_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osolodov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 11:29:02 by osolodov          #+#    #+#             */
-/*   Updated: 2020/03/03 16:23:18 by osolodov         ###   ########.fr       */
+/*   Created: 2020/03/03 13:38:38 by osolodov          #+#    #+#             */
+/*   Updated: 2020/03/03 13:50:08 by osolodov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_atoi(const char *str)
+size_t	ft_num_len(int n)
 {
-	int		value;
-	int		sign;
+	size_t	len;
 
-	sign = 1;
-	value = 0;
-	while (ft_iswhitespace(*str))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '+' || *str == '-')
-		str++;
-	while (*str >= '0' && *str <= '9')
+	len = 0;
+	if (n <= 0)
 	{
-		value = value * 10 + (*str - '0');
-		str++;
+		len++;
+		n *= -1;
 	}
-	return (sign * value);
+	while (n)
+	{
+		len++;
+		n /= 10;
+	}
+	return (len);
 }
