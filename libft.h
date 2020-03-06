@@ -6,7 +6,7 @@
 /*   By: osolodov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 15:35:16 by osolodov          #+#    #+#             */
-/*   Updated: 2020/03/03 15:14:14 by osolodov         ###   ########.fr       */
+/*   Updated: 2020/03/06 11:16:09 by osolodov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ char			*ft_itoa(int n);
 void			*ft_memalloc(size_t size);
 void			*ft_memchr(const void *s, int c, size_t n);
 void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
-int				ft_memcmp(void *restrict dest, const void *restrict src,
-							size_t n);
-void			*ft_memcpy(void *restrict dest, const void *restrict src,
-							size_t n);
+int				ft_memcmp(const void *dest, const void *src, size_t n);
+void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			ft_memdel(void **ap);
 void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_memset(void *str, int c, size_t n);
@@ -93,5 +91,6 @@ void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+size_t			ft_lstlen(t_list *head);
 
 #endif
