@@ -29,13 +29,13 @@ static char		*ft_fill_arr(char const *s, char c, int *start_index)
 		len++;
 		i++;
 	}
-	new = ft_strsub(start, 0, len);
+	new = ft_substr(start, 0, len);
 	new[len] = '\0';
 	*start_index = i;
 	return (new);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	int		nwords;
 	int		i;

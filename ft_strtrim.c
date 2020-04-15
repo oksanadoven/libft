@@ -29,6 +29,6 @@ char	*ft_strtrim(char const *s)
 	if (finish < start)
 		trimmed = ft_strnew(0);
 	else
-		trimmed = ft_strsub(s, start, finish - start + 1);
+		trimmed = ft_substr(s, start, finish - start + 1);
 	return (trimmed);
 }

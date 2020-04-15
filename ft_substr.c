@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osolodov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/25 11:54:43 by osolodov          #+#    #+#             */
-/*   Updated: 2020/02/25 12:01:51 by osolodov         ###   ########.fr       */
+/*   Created: 2020/02/24 13:56:17 by osolodov          #+#    #+#             */
+/*   Updated: 2020/02/25 15:52:46 by osolodov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_list *next;
+	char	*substr;
+	size_t	i;
 
-	if (!alst || !del)
-		return ;
-	while (*alst)
-	{
-		next = (*alst)->next;
-		ft_lstdelone(alst, del);
-		*alst = next;
-	}
+	if (!s || !(substr = ft_strnew(len)))
+		return (NULL);
+	i = 0;
+	while (i < len)
+		substr[i++] = s[start++];
+	return (substr);
 }

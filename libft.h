@@ -70,27 +70,27 @@ char			*ft_strnstr (const char *big, const char *little, size_t len);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strpbrk(const char *s1, const char *s2);
 char			*ft_strrchr(const char *s, int c);
-char			**ft_strsplit(char const *s, char c);
+char			**ft_split(char const *s, char c);
 char			*ft_strstr(const char *str, const char *to_find);
-char			*ft_strsub(char const *s, unsigned intstart, size_t len);
+char			*ft_substr(char const *s, unsigned intstart, size_t len);
 char			*ft_strtrim(char const *s);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
-char			*ft_strtrim(char const *s);
 
 typedef	struct	s_list
 {
 	void			*content;
-	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
 
-t_list			*ft_lstnew(void const *content, size_t content_size);
-void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstadd(t_list **alst, t_list *new);
-void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-size_t			ft_lstlen(t_list *head);
+t_list			*ft_lstnew(void *content);
+void			ft_lstdelone(t_list *lst, void (*del)(void *));
+void			ft_lstclear(t_list **alst, void (*del)(void *));
+void			ft_lstadd_front(t_list **alst, t_list *new);
+void			ft_lstadd_back(t_list **alst, t_list *new);
+void			ft_lstiter(t_list *lst, void (*f)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *));
+int				ft_lstsize(t_list *lst);
+t_list			*ft_lstlast(t_list *lst);
 
 #endif
